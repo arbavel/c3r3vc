@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+<h1>Categorias</h1>
+
+  <div>
+    <input type="number" id="id" placeholder="id categoria">
+    <input type="text" id="name" placeholder="nombre cliente">
+    <input type="text" id="description" placeholder="descripcion categoria">
+    
+  </div>
+
+  <button onClick="traerCategoria()">Consultar</button>
+  <button onClick="guardarCategoria()">Guardar</button>
+  <!--
+  <button onClick="editarCategoria()">Editar</button>
+ -->
+
+  <div id="resultadoC">
+
+  </div>
+
+  <div id="resultadoCategoriasId">
+
+  </div>
+
+
+
+  <h1>Clientes</h1>
+
+  <div>
+    <input type="number" id="idClient" placeholder="id cliente">
+    <input type="text" id="name" placeholder="nombre cliente">
+    <input type="text" id="email" placeholder="correo cliente">
+    <input type="text" id="password" placeholder="password cliente">
+    <input type="number" id="age" placeholder="edad cliente">
+  </div>
+
+  <button onClick="traerClientes()">Consultar</button>
+  <button onClick="guardarClientes()">Guardar</button>
+  <!--
+  <button onClick="editarClientes()">Editar</button>
+ -->
+
+  <div id="resultadoClientes">
+
+  </div>
+
+  <div id="resultadoClientesId">
+
+  </div>
+
+
+  <h1>Mensajes</h1>
+
+  <div>
+    <input type="number" id="idMessage" placeholder="id mensaje">
+    <input type="text" id="messageText" placeholder="messagetext">
+    <input type="text" id="clientId" placeholder="idClient">
+    <input type="text" id="partyroomId" placeholder="idPartyroom">
+  </div>
+
+  <button onClick="traerMensajes()">Consultar</button>
+  <button onClick="guardarMensajes()">Guardar</button>
+  <!--
+  <button onClick="editarMensajes()">Editar</button>
+ -->
+
+  <div id="resultadoMensajes">
+
+  </div>
+
+  <div id="resultadoMensajesId">
+
+  </div>
+
+
+  <h1>Salones</h1>
+
+  <div>
+    <!-- <input type="number" id="id" placeholder="id salon"> -->
+    <input type="text" id="owner" placeholder="propietario">
+    <input type="number" id="capacity" placeholder="capacidad">
+    <input type="text" id="descriptionP" placeholder="descripcion">
+    <input type="number" id="category" placeholder="categoria_id">
+    <input type="text" id="nameP" placeholder="nombre partyroom">
+    
+  </div>
+
+  <button onClick="traerSalones()">Consultar</button>
+  <button onClick="guardarSalones()">Guardar</button>
+  <!--
+  <button onClick="editarSalones()">Editar</button>
+	-->
+
+  <div id="resultadoSalones">
+
+  </div>
+
+  <div id="resultadoSalonesId">
+
+  </div>
+  
+  
+  
+  <h1>Reservaciones</h1>
+
+  <div>
+    <input type="number" id="idReservation" placeholder="idReservation">
+    <input type="date" id="startDate" placeholder="fecha inicio">
+    <input type="date" id="devolutionDate" placeholder="fecha devolucion">
+    <input type="number" id="client"  placeholder="codigo cliente">
+    <input type="number" id="partyroom"  placeholder="codigo partyroom">
+    
+  </div>
+
+  <button onClick="traerReservaciones()">Consultar</button>
+  <button onClick="guardarReservaciones()">Guardar</button>
+  <!--
+  <button onClick="editarReservaciones()">Editar</button>
+  -->
+
+  <div id="resultadoReservaciones">
+
+  </div>
+
+  <div id="resultadoReservacionesId">
+
+  </div>
+  
+
+
+  <script type="text/javascript" src="js/funciones.js"></script>
+</body>
+
+</html>
