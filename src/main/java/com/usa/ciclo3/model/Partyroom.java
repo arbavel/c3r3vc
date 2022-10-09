@@ -22,13 +22,14 @@ public class Partyroom {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;	
+  @Column(length=45)
+	private String name;
 	@Column(length=45)	
 	private String owner;
 	private Integer capacity;
 	@Column(length=250)
 	private String description;	
-	@Column(length=45)
-	private String name;
+	
 	
 	
 	@ManyToOne

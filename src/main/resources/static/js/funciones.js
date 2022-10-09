@@ -104,14 +104,14 @@ function pintarRespuesta(items) {
 
   //declarar variables de js
   let myTable="<table>";
-  myTable += "<tr><th>Codigo</th><th>Nombre</th><th>Correo</th><th>Password</th><th>Edad</th><th>Messages</th><th>Reservations</th></tr>"
+  myTable += "<tr><th>Codigo</th><th>Correo</th><th>Password</th><th>Nombre</th><th>Edad</th><th>Messages</th><th>Reservations</th></tr>"
   console.log("respuesta.items98: " + items +" ");
   for(i=0;i<items.length;i++){
     myTable+="<tr>";
     myTable+="<td>"+items[i].idClient+"</td>";
-    myTable+="<td>"+items[i].name+"</td>";
     myTable+="<td>"+items[i].email+"</td>";
     myTable+="<td>"+items[i].password+"</td>";
+    myTable+="<td>"+items[i].name+"</td>";
     myTable+="<td>"+items[i].age+"</td>";               
     myTable+="<td>"+items[i].messages +"</td>";                        
     myTable+="<td>"+items[i].reservations+"</td>"; 
@@ -126,7 +126,7 @@ function pintarRespuesta(items) {
 
 function guardarClientes(){
   $("#resultadoClientes").empty();
-  let myData ={id:$("#id").val(),name:$("#name").val(),email:$("#email").val(),password:$("#password").val(),age:$("#age").val()}
+  let myData ={id:$("#id").val(),email:$("#email").val(),password:$("#password").val(),name:$("#name").val(),age:$("#age").val()}
   let dataToSend = JSON.stringify(myData);
 
   $.ajax (
@@ -141,9 +141,9 @@ function guardarClientes(){
         //console.log(respuesta);
         $("#resultadoClientes").empty();
         $("#id").val("");
-        $("#name").val("");
         $("#email").val("");
         $("#password").val("");
+        $("#name").val("");
         $("#age").val("");
         traerClientes();
         alert("Inserción exitosa");
@@ -284,15 +284,16 @@ function pintarRespuestaS(items) {
 
   //declarar variables de js
   let myTableS="<table>";
-  myTableS += "<tr><th>Codigo</th><th>Propietario</th><th>capacidad</th><th>descripcion</th><th>nombreParty</th><th>categoriaId</th><th>nombreCat</th><th>descripcionCat</th><th>Messages</th><th>Reservations</th>"
+  myTableS += "<tr><th>Codigo</th><th>nombreParty</th><th>Propietario</th><th>capacidad</th><th>descripcion</th><th>categoriaId</th><th>nombreCat</th><th>descripcionCat</th><th>Messages</th><th>Reservations</th>"
   for(i=0;i<items.length;i++){
     myTableS+="<tr>";
     //console.log("items500: "+ items[i].categoryId);
     myTableS+="<td>"+items[i].id+"</td>";
+    myTableS+="<td>"+items[i].name+"</td>";
     myTableS+="<td>"+items[i].owner+"</td>";
     myTableS+="<td>"+items[i].capacity+"</td>";
     myTableS+="<td>"+items[i].description+"</td>";
-    myTableS+="<td>"+items[i].name+"</td>";
+    
     myTableS+="<td>"+items[i].category.id+"</td>";
     myTableS+="<td>"+items[i].category.name+"</td>";
     myTableS+="<td>"+items[i].category.description+"</td>";
@@ -315,7 +316,7 @@ function guardarSalones(){
 //category antes de : es la variable en Partyroom.java
 //category:{id:$("#category").val()} tiene que adicionarse el id de Category.java
 //"#category" es el textfield en index.html
-  let myData ={id:$("#id").val(),owner:$("#owner").val(),capacity:$("#capacity").val(),description:$("#descriptionP").val(),category:{id:$("#category").val()},name:$("#name").val()}
+  let myData ={id:$("#id").val(),name:$("#name").val(),owner:$("#owner").val(),capacity:$("#capacity").val(),description:$("#descriptionP").val(),category:{id:$("#category").val()}}
   //console.log(myData);
   let dataToSend = JSON.stringify(myData);
   //console.log(dataToSend);
@@ -331,11 +332,11 @@ function guardarSalones(){
        //console.log(respuestaS);
         $("#resultadoSalones").empty();
         $("#id").val("");
+        $("#name").val("");
         $("#owner").val("");
         $("#capacity").val("");
         $("#descriptionP").val("");
         $("#category").val("");
-        $("#name").val("");
         traerSalones();
         alert("Inserción exitosa");
         
