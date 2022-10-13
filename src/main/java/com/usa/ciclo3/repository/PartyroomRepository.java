@@ -26,5 +26,10 @@ public class PartyroomRepository {
 	public Partyroom save(Partyroom partyroom) {
 		return partyroomCrudRepository.save(partyroom);
 	}
+
+	public void delete(Partyroom partyroom) {
+		partyroomCrudRepository.delete(partyroom);
+		
+	}
   
 }

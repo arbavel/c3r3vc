@@ -28,7 +28,6 @@ public class CategoryRepository {
 	}
 
 	public void delete(Category category) {
-		// TODO Auto-generated method stub
-		
+		categoryCrudRepository.delete(category);		
 	}
 }

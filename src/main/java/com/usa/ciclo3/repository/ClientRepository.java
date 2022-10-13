@@ -27,7 +27,7 @@ public class ClientRepository {
     }
 
 	public void delete(Client client) {
-		// TODO Auto-generated method stub
+		clientCrudRepository.delete(client);
 		
 	}
 }

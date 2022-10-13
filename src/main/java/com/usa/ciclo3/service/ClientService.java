@@ -23,8 +23,60 @@ public class ClientService {
 		return clientRepository.getClient(id);
 	}
     
-  public Client  save(Client client){
-    return clientRepository.save(client);	    
+  public Client save(Client client) {
+		// return clientRepository.save(client);
+
+		if (client.getIdClient() == null) {
+			return clientRepository.save(client);
+		} else {
+			Optional<Client> paux = clientRepository.getClient(client.getIdClient());
+			if (paux.isEmpty()) {
+				return clientRepository.save(client);
+			} else {
+				return client;
+			}
+		}
+
+	}
+
+	public Client actualizarClient(Client client) {
+		if (client.getIdClient() != null) {
+			Optional<Client> e = clientRepository.getClient(client.getIdClient());
+			if (!e.isEmpty()) {
+				if (client.getEmail() != null) {
+					e.get().setEmail(client.getEmail());
+				}
+				if (client.getPassword() != null) {
+					e.get().setPassword(client.getPassword());
+				}
+				if (client.getName() != null) {
+					e.get().setName(client.getName());
+				}
+				if (client.getAge() != null) {
+					e.get().setAge(client.getAge());
+				}				
+
+				clientRepository.save(e.get());
+				return e.get();
+			} else {
+				return client;
+			}
+		} else {
+			return client;
+		}
+
+	}
+
+    
+    public boolean borrarClient(int id) {
+		boolean flag=false;
+        Optional<Client> c= clientRepository.getClient(id);
+        if(c.isPresent()){
+            clientRepository.delete(c.get());
+            flag=true;
+        }
+        return flag;
+
 	}
   
 }

@@ -38,4 +38,45 @@ public class PartyroomService {
 
   }
 
+
+
+  public Partyroom actualizarPartyroom(Partyroom partyroom) {
+		if (partyroom.getId() != null) {
+			Optional<Partyroom> e = partyroomRepository.getPartyroom(partyroom.getId());
+			if (!e.isEmpty()) {
+				if (partyroom.getName() != null) {
+					e.get().setName(partyroom.getName());
+				}
+				if (partyroom.getOwner() != null) {
+					e.get().setOwner(partyroom.getOwner());
+				}
+				if (partyroom.getCapacity() != null) {
+					e.get().setCapacity(partyroom.getCapacity());
+				}
+				if (partyroom.getDescription() != null) {
+					e.get().setDescription(partyroom.getDescription());
+				}
+
+				partyroomRepository.save(e.get());
+				return e.get();
+			} else {
+				return partyroom;
+			}
+		} else {
+			return partyroom;
+		}
+
+	}
+
+	public boolean borrarPartyroom(int id) {
+		boolean flag = false;
+		Optional<Partyroom> c = partyroomRepository.getPartyroom(id);
+		if (c.isPresent()) {
+			partyroomRepository.delete(c.get());
+			flag = true;
+		}
+		return flag;
+
+	}
+
 }
