@@ -1,4 +1,4 @@
-
+/*
 function guardarCategoria(){
 
     $("#resultado").empty();
@@ -457,3 +457,4 @@ function pintarRespuestaReservacion(items){
    $("#resultadoReservaciones").append(myTable);
 }
 
+*/
