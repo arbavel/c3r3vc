@@ -21,7 +21,7 @@ import com.usa.ciclo3.model.Category;
 import com.usa.ciclo3.service.CategoryService;
 
 @RestController
-@RequestMapping("Category")
+@RequestMapping("/api/Category")
 @CrossOrigin (origins ="*",methods ={RequestMethod.GET ,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
 public class CategoryController {
 	

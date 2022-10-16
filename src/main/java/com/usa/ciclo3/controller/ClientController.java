@@ -21,7 +21,7 @@ import com.usa.ciclo3.model.Client;
 import com.usa.ciclo3.service.ClientService;
 
 @RestController
-@RequestMapping("Client")
+@RequestMapping("/api/Client")
 @CrossOrigin(origins="*", methods ={RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
 public class ClientController {
 	 @Autowired

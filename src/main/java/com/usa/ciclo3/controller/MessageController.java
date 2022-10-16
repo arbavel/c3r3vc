@@ -21,7 +21,7 @@ import com.usa.ciclo3.model.Message;
 import com.usa.ciclo3.service.MessageService;
 
 @RestController
-@RequestMapping("Message")
+@RequestMapping("/api/Message")
 @CrossOrigin (origins ="*",methods ={RequestMethod.GET ,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
 public class MessageController {
 	

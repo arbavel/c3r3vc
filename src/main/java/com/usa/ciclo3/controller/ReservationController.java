@@ -23,7 +23,7 @@ import com.usa.ciclo3.model.DTOs.TotalAndClient;
 import com.usa.ciclo3.service.ReservationService;
 
 @RestController
-@RequestMapping("Reservation")
+@RequestMapping("/api/Reservation")
 @CrossOrigin (origins ="*",methods ={RequestMethod.GET ,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
 public class ReservationController {
 	
