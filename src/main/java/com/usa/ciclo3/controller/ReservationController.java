@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.usa.ciclo3.model.Reservation;
+import com.usa.ciclo3.model.DTOs.CompletedAndCancelled;
+import com.usa.ciclo3.model.DTOs.TotalAndClient;
 import com.usa.ciclo3.service.ReservationService;
 
 @RestController
@@ -58,6 +60,23 @@ public class ReservationController {
 	  @DeleteMapping("/{id}")
 	  public boolean borrarReservation(@PathVariable("id") int idReservation) {
 		  return reservationService.borrarReservation(idReservation);
+	  }
+
+		// Reto 5
+	  
+	  @GetMapping("/report-dates/{fecha1}/{fecha2}")
+	  public List<Reservation> getReservationsInPeriodReport(@PathVariable("fecha1") String fecha1, @PathVariable("fecha2") String fecha2){
+		  return reservationService.getReservationsInPeriodReport(fecha1, fecha2);
+	  }
+	  
+	  @GetMapping("/report-status")
+	  public CompletedAndCancelled getReservationsStatusReport() {
+		  return reservationService.getReservationStatusReport();		  
+	  }
+	  
+	  @GetMapping("/report-clients")
+	  public List<TotalAndClient> getTopClientsReport(){
+		  return reservationService.getTopClientsReport();
 	  }
   
 }

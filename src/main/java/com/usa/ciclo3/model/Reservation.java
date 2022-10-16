@@ -2,12 +2,14 @@ package com.usa.ciclo3.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -36,7 +38,11 @@ public class Reservation {
     @JsonIgnoreProperties({"reservations","messages"})
     private Client client;
 
-    private String score;
+    @OneToOne(cascade = {CascadeType.REMOVE},mappedBy="reservation")
+    @JsonIgnoreProperties("reservation")
+    private Score score;
+
+    //private String score;
 
     public Integer getIdReservation() {
       return idReservation;
@@ -86,11 +92,11 @@ public class Reservation {
       this.client = client;
     }
 
-    public String getScore() {
+    public Score getScore() {
       return score;
     }
 
-    public void setScore(String score) {
+    public void setScore(Score score) {
       this.score = score;
     }
 

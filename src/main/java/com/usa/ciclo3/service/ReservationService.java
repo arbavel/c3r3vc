@@ -1,5 +1,9 @@
 package com.usa.ciclo3.service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -7,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.usa.ciclo3.model.Reservation;
+import com.usa.ciclo3.model.DTOs.CompletedAndCancelled;
+import com.usa.ciclo3.model.DTOs.TotalAndClient;
 import com.usa.ciclo3.repository.ReservationRepository;
 
 @Service
@@ -76,5 +82,39 @@ public class ReservationService {
 			return flag;
 	
 		}
+
+
+		// Reto 5
+	
+	public List<Reservation> getReservationsInPeriodReport(String dateA, String dateB){
+		SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd");
+		Date a = new Date();
+		Date b = new Date();
+		try {
+			a = parser.parse(dateA);
+			b = parser.parse(dateB);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		if(a.before(b)) {
+			return reservationRepository.getReservationInPeriod(a, b);
+		}else {
+			return new ArrayList<>();
+		}
+	}
+	
+	public CompletedAndCancelled getReservationStatusReport() {
+		
+		List<Reservation> completed = reservationRepository.getReservationByStatus("completed");
+		List<Reservation> cancelled = reservationRepository.getReservationByStatus("cancelled");
+		
+		return new CompletedAndCancelled((long)completed.size(), (long)cancelled.size());
+		
+	}
+	
+	public List<TotalAndClient> getTopClientsReport(){
+		return reservationRepository.getTopClients();
+	}
   
 }
