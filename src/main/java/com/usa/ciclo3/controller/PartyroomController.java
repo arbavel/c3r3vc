@@ -21,7 +21,7 @@ import com.usa.ciclo3.model.Partyroom;
 import com.usa.ciclo3.service.PartyroomService;
 
 @RestController
-@RequestMapping("/api/Partyroom")
+@RequestMapping("Partyroom")
 @CrossOrigin (origins ="*",methods ={RequestMethod.GET ,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
 public class PartyroomController {
 	

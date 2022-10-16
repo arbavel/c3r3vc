@@ -21,7 +21,7 @@ import com.usa.ciclo3.model.Message;
 import com.usa.ciclo3.service.MessageService;
 
 @RestController
-@RequestMapping("/api/Message")
+@RequestMapping("Message")
 @CrossOrigin (origins ="*",methods ={RequestMethod.GET ,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
 public class MessageController {
 	
@@ -52,6 +52,7 @@ public class MessageController {
 	}
 
 	@DeleteMapping("/{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public boolean borrarMessage(@PathVariable Integer id) {
 		return messageService.borrarMessage(id);
 	}

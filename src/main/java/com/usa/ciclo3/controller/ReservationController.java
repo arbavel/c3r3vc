@@ -23,7 +23,7 @@ import com.usa.ciclo3.model.DTOs.TotalAndClient;
 import com.usa.ciclo3.service.ReservationService;
 
 @RestController
-@RequestMapping("/api/Reservation")
+@RequestMapping("Reservation")
 @CrossOrigin (origins ="*",methods ={RequestMethod.GET ,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
 public class ReservationController {
 	
@@ -58,6 +58,7 @@ public class ReservationController {
 	  
 	  
 	  @DeleteMapping("/{id}")
+		@ResponseStatus(HttpStatus.NO_CONTENT)
 	  public boolean borrarReservation(@PathVariable("id") int idReservation) {
 		  return reservationService.borrarReservation(idReservation);
 	  }
