@@ -16,7 +16,7 @@ public class PartyroomService {
   private PartyroomRepository partyroomRepository;
 
   public List<Partyroom> getAll() {
-    return (List<Partyroom>) partyroomRepository.getAll();
+    return  partyroomRepository.getAll();
   }
 
   public Optional<Partyroom> getPartyroom(int id) {
